@@ -326,26 +326,26 @@ int main() {
 ## Mermaid 흐름도
 ```mermaid
 
-graph TD;
-  A[Start at root];
-  B{current in path?};
-  C[Return (cycle)];
-  D[Push current to path];
-  E{Unvisited child exists?};
-  F[Save path as leaf];
-  G[For each child not in path: DFS];
-  H[Pop current (backtrack)];
-  I[Done];
+graph TD
+  A[Start at root]
+  B{Is in path}
+  C[Return cycle]
+  D[Push current to path]
+  E{Has unvisited child}
+  F[Save path as leaf]
+  G[For each valid child do DFS]
+  H[Pop current backtrack]
+  I[Done]
 
-  A --> B;
-  B -->|Yes| C;
-  B -->|No| D;
-  D --> E;
-  E -->|No| F;
-  E -->|Yes| G;
-  G --> H;
-  F --> H;
-  H --> I;
+  A --> B
+  B -->|Yes| C
+  B -->|No| D
+  D --> E
+  E -->|No| F
+  E -->|Yes| G
+  G --> H
+  F --> H
+  H --> I
 
 ```
 
