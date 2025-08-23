@@ -327,14 +327,19 @@ int main() {
 ```mermaid
 flowchart TD
   A[Start at root] --> B{Is current in path?}
-  B -->|Yes| C[Return (cycle)]
-  B -->|No| D[Add current to path]
+  B --> C[Return (cycle)]
+  B --> D[Add current to path]
+  C:::yes
+  D:::no
   D --> E{Has unvisited child?}
-  E -->|No| F[Save path as leaf]
-  E -->|Yes| G[DFS on each child not in path]
-  G --> H[Remove current (backtrack)]
-  F --> H
+  E --> F[Save path as leaf]
+  E --> G[DFS on each child not in path]
+  F --> H[Remove current (backtrack)]
+  G --> H
   H --> I[Done]
+
+  classDef yes fill=#fdd;
+  classDef no fill=#dfd;
 
 ```
 
