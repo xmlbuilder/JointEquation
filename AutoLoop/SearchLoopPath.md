@@ -326,20 +326,15 @@ int main() {
 ## Mermaid 흐름도
 ```mermaid
 flowchart TD
-  A[Start at root] --> B{Is current in path?}
-  B --> C[Return (cycle)]
-  B --> D[Add current to path]
-  C:::yes
-  D:::no
-  D --> E{Has unvisited child?}
-  E --> F[Save path as leaf]
-  E --> G[DFS on each child not in path]
-  F --> H[Remove current (backtrack)]
-  G --> H
-  H --> I[Done]
-
-  classDef yes fill=#fdd;
-  classDef no fill=#dfd;
+  A[Start at root] --> B
+  B[Is current in path?] --> C1[Return (cycle)]
+  B --> C2[Add current to path]
+  C2 --> D[Has unvisited child?]
+  D --> E1[Save path as leaf]
+  D --> E2[DFS on each child not in path]
+  E1 --> F[Remove current (backtrack)]
+  E2 --> F
+  F --> G[Done]
 
 ```
 
